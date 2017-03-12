@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var fs = require('fs');
 var path = require('path');
 var clone = require('js.clone');
 var webpackMerge = require('webpack-merge');
@@ -23,8 +24,7 @@ export var commonConfig = {
   // https://webpack.github.io/docs/configuration.html#devtool
   devtool: 'source-map',
   resolve: {
-    extensions: ['.ts', '.js', '.json'],
-    modules: [ root('node_modules') ]
+    extensions: ['.ts', '.js', '.json']
   },
   context: __dirname,
   output: {
@@ -94,7 +94,24 @@ export var serverConfig = {
     ],
   },
   externals: includeClientPackages(
-    /@angularclass|@angular|angular2-|ng2-|ng-|@ng-|angular-|@ngrx|ngrx-|@angular2|ionic|@ionic|-angular2|-ng2|-ng/
+    new RegExp([
+      '@angularclass',
+      '@angular',
+      'angular2-',
+      'ng2-',
+      'ng-',
+      '@ng-',
+      'angular-',
+      '@ngrx',
+      'ngrx-',
+      '@angular2',
+      'ionic',
+      '@ionic',
+      '-angular2',
+      '-ng2',
+      '-ng',
+    ].join('|')),
+    new RegExp( ('^' + getDirectories(root('src/node_modules')).join('|')) )
   ),
   node: {
     global: true,
@@ -115,10 +132,13 @@ export default [
 ];
 
 
-
+export function getDirectories(srcpath) {
+  return fs.readdirSync(srcpath)
+    .filter(file => fs.statSync(path.join(srcpath, file)).isDirectory());
+}
 
 // Helpers
-export function includeClientPackages(packages, localModule?: string[]) {
+export function includeClientPackages(packages: string[] | RegExp, localModule?: string[] | RegExp) {
   return function(context, request, cb) {
     if (localModule instanceof RegExp && localModule.test(request)) {
       return cb();

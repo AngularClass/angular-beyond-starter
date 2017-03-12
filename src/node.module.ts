@@ -13,7 +13,7 @@ import * as serialize from 'serialize-javascript';
 
 // Will be merged into @angular/platform-browser in a later release
 // see https://github.com/angular/angular/pull/12322
-import { Meta } from '_ng2/meta';
+import { Meta } from '_ng/meta';
 
 export function getLRU() {
   // return lru || new LRU(10);

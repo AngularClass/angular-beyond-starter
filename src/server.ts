@@ -2,9 +2,9 @@
 // The only modules to be imported higher - node modules with es6-promise 3.x or other Promise polyfill dependency
 // (rule of thumb: do it if you have zone.js exception that it has been overwritten)
 // if you are including modules that modify Promise, such as NewRelic,, you must include them before polyfills
-import '_polyfills';
+import '_polyfills/node';
 import 'ts-helpers';
-import '_workaround'; // temporary until 2.1.1 things are patched in Core
+import '_workaround/node'; // temporary until 2.1.1 things are patched in Core
 
 import * as path from 'path';
 import * as express from 'express';
