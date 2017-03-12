@@ -7,7 +7,7 @@
 ___
 
 
-# Angular Beyond Starter [![Universal Angular 2](https://img.shields.io/badge/universal-angular-brightgreen.svg?style=flat)](https://github.com/angularclass/angular-beyond-starter)
+# Angular Beyond Starter [![Universal Angular 2](https://img.shields.io/badge/angular-universal-brightgreen.svg?style=flat)](https://github.com/angularclass/angular-beyond-starter)
 > Angular Beyond starter kit for Angular 2 and Angular 4 using Angular Universal for Server-Side Rendering by @AngularClass
 
 
