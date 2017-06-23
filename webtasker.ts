@@ -3,7 +3,6 @@ import * as webpack from 'webpack';
 import * as WebpackDevServer from 'webpack-dev-server';
 import * as path from 'path';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
-import * as PrerenderSpaPlugin from 'prerender-spa-plugin';
 import { TsConfigPathsPlugin, CheckerPlugin } from 'awesome-typescript-loader';
 
 const CONFIG = {
