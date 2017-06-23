@@ -26,3 +26,5 @@ webpack.records.json
 *.shim.ngstyle.ts
 
 yarn-error.log
+
+yarn.lock
